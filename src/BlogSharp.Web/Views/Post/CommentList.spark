@@ -1,0 +1,16 @@
+﻿<viewdata model="BlogSharp.Model.Post"/>
+<var post="ViewData.Model"/>
+<h3 id="comments">Responses to ${post.Title}</h3>
+
+<ol class="commentlist">
+	<li class="alt" id="comment" each="var comment in post.Comments">
+		<cite><a href="${comment.Web}" rel="external nofollow">${comment.Name}</a></cite> says:
+		<br />
+		<small class="commentmetadata">
+			${comment.Date}
+		</small>
+		<div class="commentbody">
+        	<div><p>${comment.Comment}</p></div>
+	    </div>
+	</li>
+</ol>

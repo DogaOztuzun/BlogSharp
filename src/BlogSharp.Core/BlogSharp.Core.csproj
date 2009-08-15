@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ABDABEBC-B92A-4F36-AC07-6874B4932C21}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BlogSharp.Core</RootNamespace>
+    <AssemblyName>BlogSharp.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SharedLibs\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MicroKernel, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SharedLibs\Castle.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SharedLibs\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SharedLibs\System.Web.Abstractions.dll</HintPath>
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SharedLibs\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SharedLibs\System.Web.Routing.dll</HintPath>
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Persistence\IDataInitializer.cs" />
+    <Compile Include="Persistence\Repositories\IBlogRepository.cs" />
+    <Compile Include="Persistence\Repositories\IPostRepository.cs" />
+    <Compile Include="Persistence\Repositories\IUserRepository.cs" />
+    <Compile Include="EventHandler.cs" />
+    <Compile Include="Event\AbstractEventArgs.cs" />
+    <Compile Include="Event\ApplicationEvents\ApplicationStartedEventArgs.cs" />
+    <Compile Include="Event\ApplicationEvents\ApplicationStartingEventArgs.cs" />
+    <Compile Include="Event\ICancellableEvent.cs" />
+    <Compile Include="Event\IEventArgs.cs" />
+    <Compile Include="Event\IEventListener.cs" />
+    <Compile Include="Event\MembershipEvents\PasswordResettedEventArgs.cs" />
+    <Compile Include="Event\MembershipEvents\UserRegisteredEventArgs.cs" />
+    <Compile Include="Event\MembershipEvents\UserValidatedEventArgs.cs" />
+    <Compile Include="Event\MembershipEvents\UserValidatingEvent.cs" />
+    <Compile Include="Event\PluginEvents\PluginStartedEventArgs.cs" />
+    <Compile Include="Event\PluginEvents\PluginStartingEventArgs.cs" />
+    <Compile Include="Event\PluginEvents\PluginStoppedEventArgs.cs" />
+    <Compile Include="Event\PluginEvents\PluginStoppingEventArgs.cs" />
+    <Compile Include="Event\PostEvents\CommentAddedEventArgs.cs" />
+    <Compile Include="Event\PostEvents\CommentAddingEventArgs.cs" />
+    <Compile Include="Event\PostEvents\PostAddedEventArgs.cs" />
+    <Compile Include="Event\PostEvents\PostAddingEventArgs.cs" />
+    <Compile Include="Event\PostEvents\PostRemovedEventArgs.cs" />
+    <Compile Include="Event\PostEvents\PostRemovingEventArgs.cs" />
+    <Compile Include="IApplication.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Compression\IArchiveFile.cs" />
+    <Compile Include="Services\Compression\IArchiveItem.cs" />
+    <Compile Include="Services\Compression\IArchiveManager.cs" />
+    <Compile Include="Services\Compression\InvalidArchiveFormatException.cs" />
+    <Compile Include="Services\Encryption\IByteStringConverter.cs" />
+    <Compile Include="Services\Encryption\IEncryptionService.cs" />
+    <Compile Include="Services\Encryption\IEncryptor.cs" />
+    <Compile Include="Services\Encryption\IHasher.cs" />
+    <Compile Include="Services\FileSystem\FileSystemType.cs" />
+    <Compile Include="Services\FileSystem\IDirectory.cs" />
+    <Compile Include="Services\FileSystem\IFile.cs" />
+    <Compile Include="Services\FileSystem\IFileService.cs" />
+    <Compile Include="Services\FileSystem\IFileSystemInfo.cs" />
+    <Compile Include="Services\FileSystem\SearchOptions.cs" />
+    <Compile Include="Services\Mail\IMailService.cs" />
+    <Compile Include="Services\Membership\IMembershipService.cs" />
+    <Compile Include="Services\Ping\IPingService.cs" />
+    <Compile Include="Services\Plugin\IPlugin.cs" />
+    <Compile Include="Services\Plugin\IPluginService.cs" />
+    <Compile Include="Services\Post\IPostService.cs" />
+    <Compile Include="Services\Search\IIndexContributor.cs" />
+    <Compile Include="Services\Search\ISearchContentTransformer.cs" />
+    <Compile Include="Services\Search\ISearchService.cs" />
+    <Compile Include="Services\Template\ITemplate.cs" />
+    <Compile Include="Services\Template\ITemplateContext.cs" />
+    <Compile Include="Services\Template\ITemplateEngine.cs" />
+    <Compile Include="Services\Template\ITemplateEngineRegistry.cs" />
+    <Compile Include="Services\Template\ITemplateSource.cs" />
+    <Compile Include="Structure\IFriendlyUrlGenerator.cs" />
+    <Compile Include="Web\Modules\IBlogSharpHttpModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BlogSharp.Model\BlogSharp.Model.csproj">
+      <Project>{ACD93612-B2E7-4D51-9127-C306EF1F386C}</Project>
+      <Name>BlogSharp.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataAccess\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

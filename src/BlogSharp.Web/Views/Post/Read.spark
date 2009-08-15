@@ -1,0 +1,20 @@
+﻿<viewdata model="BlogSharp.Model.Post"/>
+<var post="ViewData.Model"/>
+<content name="head">
+	<title>${post.Title}</title>
+</content>
+<content name="MainContent">
+	<div class="post">
+		<h2 class="title">${post.Title}</h2>
+		<p class="byline"><small>Posted by ${post.User.Username}</small></p>
+		<div class="entry">
+			${post.Content}
+		</div>
+		<div class="meta">
+			<p class="tags"> Tagged under: <x class="tags" each="var tag in post.Tags">${Html.ActionLink<PostController>(x => x.ListByTag(tag.FriendlyName,1),tag.Name)}</x></p>
+			<p class="links">Comments (${post.Comments.Count})</p>
+		</div>
+	</div>
+	# Html.RenderPartial("CommentList", post);
+	# Html.RenderPartial("CommentWrite", post);
+</content>
